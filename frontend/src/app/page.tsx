@@ -4,7 +4,6 @@ import Chatbox from "./components/chatbox";
 import { useState } from "react";
 import { useAppContext, AppProvider } from "./context/context";
 
-
 const Home = () => {
   return (
     <AppProvider>
