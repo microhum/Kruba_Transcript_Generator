@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from pprint import pprint
 
 class TranscriptEntry(BaseModel):
@@ -8,6 +8,7 @@ class TranscriptEntry(BaseModel):
 
 class Transcript(BaseModel):
     transcript: List[TranscriptEntry]
+    detail: Optional[str] = None
 
 
 if __name__ == "__main__":
@@ -18,8 +19,9 @@ if __name__ == "__main__":
             {"role": "enemy", "text": "โอย โอย โอย พอเพียงช่วยบีมพอด้วยพอเพียงปราบเจ้าไดโนเสาร์ได้แล้ว"},
             {"role": "kruba", "text": "พอเพียงมีเมตตาครูบารักบีมครูบารักไดโนเสาร์พอเพียงช่วยไดโนเสาร์"},
             {"role": "enemy", "text": "ไดโนเสาร์ขอโทษพอเพียงไดโนเสาร์ขอโทษบีมไดโนเสาร์รักพอเพียงไดโนเสาร์รักบีมพอเพียงช่วยบีม"},
-            {"role": "kruba", "text": "พอเพียงช่วยบีมพอเพียงช่วยไดโนเสาร์พอเพียงบีมช่วยผู้ประสบภัยสาธุสาธุ"}
-        ]
+            {"role": "moodeng", "text": "พอเพียงช่วยบีมพอเพียงช่วยไดโนเสาร์พอเพียงบีมช่วยผู้ประสบภัยสาธุสาธุ"}
+        ],
+        "detail": "พอเพียงถูกเจ้าไดโนเสาร์แต่ก็มีครูบาคอยช่วยเหลือ ปล่อยพลังบุญใส่ไดโนเสาร์"
     }
     transcript_instance = Transcript(**data)
     pprint(transcript_instance.transcript)
