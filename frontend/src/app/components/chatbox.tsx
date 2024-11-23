@@ -2,9 +2,10 @@
 
 import { useState, FormEvent, useEffect } from 'react';
 import { useAppContext } from '../context/context';
+import Loading from './loading';
 
 const Chatbox = ({ query }: { query: Query }) => {
-  const { active, setActive, messages, setMessages } = useAppContext();
+  const { active, setActive, messages, setMessages, isLoading } = useAppContext();
   const renderMessages = (messages: Message[], query: Query) => {
     const boldText = (text: string, query: Query) => {
       const regex = new RegExp(`(${query.kruba}|${query.mudeng}|${query.enemy})`, 'gi');
@@ -38,6 +39,8 @@ const Chatbox = ({ query }: { query: Query }) => {
   };
 
   return (
+    <>
+    {isLoading ? <Loading /> :
     <div className="flex flex-col mx-auto p-6 bg-gray-100 rounded-lg shadow-lg mt-10">
         <div className="text-black text-3xl self-center justify-center font-bold mb-5">Moo-Deng Kruba Generator</div>
         <div className="text-black text-l justify-center">ชื่อครูบา: {query.kruba}</div>
@@ -53,8 +56,8 @@ const Chatbox = ({ query }: { query: Query }) => {
       >
         Reset
       </button>
-
-    </div>
+    </div>}
+    </>
   );
 };
 

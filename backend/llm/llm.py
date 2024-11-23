@@ -13,7 +13,8 @@ class KrubaMoodengLLM:
         self.client = ChatOpenAI(
             base_url=base_url,
             model=model,
-            api_key=api_key
+            api_key=api_key,
+            max_tokens=1000,
         )
         self.system_prompt = system_prompt
         self.user_prompt = user_prompt
