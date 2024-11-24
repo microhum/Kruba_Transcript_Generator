@@ -64,8 +64,12 @@ const HomeContent = () => {
     const response: Transcript = await getMessage(query);
     console.log(response.transcript);
     if (response && response.transcript) {
-      setMessages(response.transcript);
-      console.log("new messages: ", messages);
+      const newMessages = response.transcript;
+      if (response.detail) {
+      newMessages.push({ role: 'kruba', text: "คติสอนใจ: "+response.detail });
+      }
+      setMessages(newMessages);
+      console.log("new messages: ", newMessages);
     }
   };
   return (

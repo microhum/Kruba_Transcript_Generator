@@ -49,6 +49,7 @@ const Chatbox = ({ query }: { query: Query }) => {
         <div className="text-black text-l justify-center">Story: {query.story_extend}</div>
       <div className="space-y-4 overflow-auto h-96 bg-white p-4 rounded-lg shadow-inner">
         {renderMessages(messages, query)}
+        
       </div>
       <button
         onClick={() => setActive(false)}
