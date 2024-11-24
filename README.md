@@ -14,7 +14,7 @@
 Make sure you have the following installed on your system:
 
 - Python 3.10 or higher
-- Node.js and npm
+- Node.js and npm (I use bun tho)
 - Poetry (for managing Python dependencies)
 
 ## Backend Setup
@@ -60,10 +60,10 @@ Make sure you have the following installed on your system:
 2. **Install dependencies:**
 
    ```sh
-   npm install
+   bun install
    ```
 3. **Run the frontend server:**
 
    ```sh
-   npm run dev
+   bun run dev
    ```
